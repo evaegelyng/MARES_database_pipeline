@@ -5,5 +5,5 @@ awk 'NR % 2 == 1' MARES_BAR_BOLD_NCBI_sl_reformatted.fasta  | awk -F" " '{print 
 awk 'NR % 2 == 1' MARES_BAR_BOLD_NCBI_sl_reformatted_blast.fasta | sed 's|[>,]||g' - > seqnames_mares.txt
 paste seqnames_mares.txt mares_taxids.txt | column -s $' ' -t > cust_taxid_map
 makeblastdb -in MARES_BAR_BOLD_NCBI_sl_reformatted_blast.fasta -dbtype nucl -taxid_map cust_taxid_map -parse_seqids -out MARES_BAR.db
-mkdir ../MEGAN_db
+mkdir ../BAR_MEGAN_db
 mv MARES_BAR.db* ../BAR_MEGAN_db
